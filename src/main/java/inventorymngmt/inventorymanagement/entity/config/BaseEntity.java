@@ -1,4 +1,4 @@
-package inventorymngmt.inventorymanagement.entity;
+package inventorymngmt.inventorymanagement.entity.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +25,11 @@ public class BaseEntity {
     private LocalDateTime lastUpdateDateTime;
     @Column(nullable = false)
     private Long lastUpdateUserId;
-    private boolean isDeleted;
+
+    private Boolean isDeleted = false;
+
 }
+
+
+
+

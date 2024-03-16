@@ -1,5 +1,6 @@
 package inventorymngmt.inventorymanagement.entity;
 
+import inventorymngmt.inventorymanagement.entity.config.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "categories")
-public class Category extends BaseEntity{
+public class Category extends BaseEntity {
     private String description;
     @ManyToOne
     private Company company;

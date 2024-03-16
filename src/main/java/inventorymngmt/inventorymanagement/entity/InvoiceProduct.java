@@ -1,5 +1,6 @@
 package inventorymngmt.inventorymanagement.entity;
 
+import inventorymngmt.inventorymanagement.entity.config.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "invoice_products")
-public class InvoiceProduct extends BaseEntity{
+public class InvoiceProduct extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;

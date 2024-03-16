@@ -1,5 +1,6 @@
 package inventorymngmt.inventorymanagement.entity;
 
+import inventorymngmt.inventorymanagement.entity.config.BaseEntity;
 import inventorymngmt.inventorymanagement.enums.ProductUnit;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "products")
-public class Product extends BaseEntity{
+public class Product extends BaseEntity {
     private Integer quantityInStock;
     @ManyToOne(fetch = FetchType.LAZY)
     private Category category;

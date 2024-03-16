@@ -10,4 +10,8 @@ public interface CompanyService {
     CompanyDto findCompanyById(Long id);
 
     List<CompanyDto> allCompanies();
+
+    CompanyDto saveCompany(CompanyDto companyDto);
+
+    boolean titleExists(String title);
 }

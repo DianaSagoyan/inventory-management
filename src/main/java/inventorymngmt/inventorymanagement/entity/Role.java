@@ -1,5 +1,6 @@
 package inventorymngmt.inventorymanagement.entity;
 
+import inventorymngmt.inventorymanagement.entity.config.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,6 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "roles")
-public class Role extends BaseEntity{
+public class Role extends BaseEntity {
     private String description;
 }

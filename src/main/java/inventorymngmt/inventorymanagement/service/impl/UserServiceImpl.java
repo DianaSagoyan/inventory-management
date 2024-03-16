@@ -19,6 +19,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findUserByUsername(String userName) {
-        return mapper.convert(userRepository.findUserByUserName(userName), new UserDto());
+        return mapper.convert(userRepository.findUserByUsername(userName), new UserDto());
     }
 }

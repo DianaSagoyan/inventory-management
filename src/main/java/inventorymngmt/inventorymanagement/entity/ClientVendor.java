@@ -1,6 +1,6 @@
 package inventorymngmt.inventorymanagement.entity;
 
-import inventorymngmt.inventorymanagement.dto.AddressDto;
+import inventorymngmt.inventorymanagement.entity.config.BaseEntity;
 import inventorymngmt.inventorymanagement.enums.ClientVendorType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +15,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "clients_vendors")
-public class ClientVendor extends BaseEntity{
+public class ClientVendor extends BaseEntity {
     private String clientVendorName;
     @Enumerated(EnumType.STRING)
     private ClientVendorType clientVendorType;

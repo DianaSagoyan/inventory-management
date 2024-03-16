@@ -1,5 +1,6 @@
 package inventorymngmt.inventorymanagement.entity;
 
+import inventorymngmt.inventorymanagement.entity.config.BaseEntity;
 import inventorymngmt.inventorymanagement.enums.InvoiceStatus;
 import inventorymngmt.inventorymanagement.enums.InvoiceType;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "invoices")
-public class Invoice extends BaseEntity{
+public class Invoice extends BaseEntity {
     private String invoiceNo;
     @ManyToOne
     @JoinColumn(name = "client_vendor_id")

@@ -1,6 +1,6 @@
 package inventorymngmt.inventorymanagement.entity;
 
-import inventorymngmt.inventorymanagement.dto.AddressDto;
+import inventorymngmt.inventorymanagement.entity.config.BaseEntity;
 import inventorymngmt.inventorymanagement.enums.CompanyStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "companies")
-public class Company extends BaseEntity{
+public class Company extends BaseEntity {
     private String title;
     private String phone;
     @Enumerated(EnumType.STRING)
