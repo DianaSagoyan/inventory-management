@@ -32,6 +32,7 @@ public class SecurityConfig {
         return http.authorizeRequests()
                 .requestMatchers("/companies/**")
                 .permitAll()
+//                .hasAnyAuthority("Root User")
                 .and()
                 .rememberMe().userDetailsService(securityService)
                 .and().build();

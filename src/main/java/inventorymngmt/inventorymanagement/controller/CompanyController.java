@@ -24,7 +24,13 @@ public class CompanyController {
 
     @PostMapping("/create")
     public ResponseEntity<ResponseWrapper> createCompany(@RequestBody CompanyDto company){
-        companyService.saveCompany(company);
+        boolean titleExists = companyService.titleExists(company.getTitle());
+
+        if(titleExists){
+            throw new RuntimeException("A company with the same title exists");
+        } else {
+            companyService.saveCompany(company);
+        }
         return ResponseEntity.ok(new ResponseWrapper("Successfully saved company", HttpStatus.CREATED));
     }
 }
