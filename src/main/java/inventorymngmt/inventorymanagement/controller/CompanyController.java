@@ -33,4 +33,14 @@ public class CompanyController {
         }
         return ResponseEntity.ok(new ResponseWrapper("Successfully saved company", HttpStatus.CREATED));
     }
+
+    @PutMapping("/activate/{id}")
+     public ResponseEntity<ResponseWrapper> activateCompany(@PathVariable Long id){
+        return ResponseEntity.ok(new ResponseWrapper("Company activated", HttpStatus.OK, companyService.activate(id)));
+     }
+
+    @PutMapping("/deactivate/{id}")
+    public ResponseEntity<ResponseWrapper> deactivateCompany(@PathVariable Long id){
+        return ResponseEntity.ok(new ResponseWrapper("Company deactivated", HttpStatus.OK, companyService.deActivate(id)));
+    }
 }

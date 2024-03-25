@@ -14,4 +14,7 @@ public interface CompanyService {
     CompanyDto saveCompany(CompanyDto companyDto);
 
     boolean titleExists(String title);
+
+    CompanyDto activate(Long id);
+    CompanyDto deActivate(Long id);
 }
