@@ -13,8 +13,10 @@ public interface CompanyService {
 
     CompanyDto saveCompany(CompanyDto companyDto);
 
-    boolean titleExists(String title);
+//    boolean titleExists(String title);
 
+    boolean titleExists(String title, Long id);
     CompanyDto activate(Long id);
     CompanyDto deActivate(Long id);
+    CompanyDto updateCompany(CompanyDto companyDto);
 }

@@ -47,11 +47,21 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public boolean titleExists(String title) {
-        return companyRepository.findAll().stream()
-                .filter(company -> company.getIsDeleted().equals(false))
-                .anyMatch(company -> company.getTitle().equals(title));
+    public boolean titleExists(String title, Long id) {
+        if(id!=null) {
+            Company company= companyRepository.findById(id).get();
+            if(company.getTitle().equalsIgnoreCase(title))
+                return false;
+        }
+        return companyRepository.existsByTitle(title);
     }
+
+//    @Override
+//    public boolean titleExists(String title) {
+//        return companyRepository.findAll().stream()
+//                .filter(company -> company.getIsDeleted().equals(false))
+//                .anyMatch(company -> company.getTitle().equals(title));
+//    }
 
     @Override
     public CompanyDto activate(Long id) {
@@ -77,6 +87,16 @@ public class CompanyServiceImpl implements CompanyService {
         company.setCompanyStatus(CompanyStatus.PASSIVE);
         companyRepository.save(company);
         return mapper.convert(company, new CompanyDto());
+    }
+
+    @Override
+    public CompanyDto updateCompany(CompanyDto companyDto) {
+        Company company = companyRepository.findCompanyById(companyDto.getId()).orElseThrow(() -> new RuntimeException("No such company"));
+        Company convertedCompany = mapper.convert(companyDto, new Company());
+        convertedCompany.setId(company.getId());
+        convertedCompany.setCompanyStatus(company.getCompanyStatus());
+        companyRepository.save(convertedCompany);
+        return mapper.convert(companyRepository.findCompanyById(convertedCompany.getId()), new CompanyDto());
     }
 
 }
