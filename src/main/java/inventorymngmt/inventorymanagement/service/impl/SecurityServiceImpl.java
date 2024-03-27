@@ -3,9 +3,11 @@ package inventorymngmt.inventorymanagement.service.impl;
 import inventorymngmt.inventorymanagement.dto.UserDto;
 import inventorymngmt.inventorymanagement.entity.User;
 import inventorymngmt.inventorymanagement.entity.config.UserPrincipal;
+import inventorymngmt.inventorymanagement.mapper.MapperUtil;
 import inventorymngmt.inventorymanagement.repository.UserRepository;
 import inventorymngmt.inventorymanagement.service.SecurityService;
 import inventorymngmt.inventorymanagement.service.UserService;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,7 +19,7 @@ public class SecurityServiceImpl implements SecurityService {
     private final UserRepository userRepository;
     private final UserService userService;
 
-    public SecurityServiceImpl(UserRepository userRepository, UserService userService) {
+    public SecurityServiceImpl(UserRepository userRepository, @Lazy UserService userService) {
         this.userRepository = userRepository;
         this.userService = userService;
     }

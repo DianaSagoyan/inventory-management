@@ -19,7 +19,7 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<ResponseWrapper> getCompanies(){
         return ResponseEntity.ok(new ResponseWrapper("All Companies", HttpStatus.OK, companyService.allCompanies()));
     }

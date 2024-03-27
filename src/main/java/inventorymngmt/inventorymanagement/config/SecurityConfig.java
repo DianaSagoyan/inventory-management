@@ -35,8 +35,10 @@ public class SecurityConfig{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return http.authorizeHttpRequests(httpRequests -> httpRequests
-                        .requestMatchers( "/companies/**").permitAll())
-                .csrf(AbstractHttpConfigurer::disable).rememberMe(remember -> remember
+                        .requestMatchers( "/users/**").permitAll())
+//                        .requestMatchers("/users/**").permitAll())
+                .csrf(AbstractHttpConfigurer::disable)
+                .rememberMe(remember -> remember
                         .userDetailsService(securityService))
                 .build();
     }
