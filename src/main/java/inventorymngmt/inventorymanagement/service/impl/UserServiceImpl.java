@@ -6,6 +6,9 @@ import inventorymngmt.inventorymanagement.repository.UserRepository;
 import inventorymngmt.inventorymanagement.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -20,5 +23,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto findUserByUsername(String userName) {
         return mapper.convert(userRepository.findUserByUsername(userName), new UserDto());
+    }
+
+    @Override
+    public List<UserDto> listAllUsers() {
+        return userRepository.listAllNotDeletedAndActiveCompanyUsers().stream()
+                .map(user -> mapper.convert(user, new UserDto()))
+                .collect(Collectors.toList());
     }
 }
